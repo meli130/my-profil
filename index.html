@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Line Tech - Portfolio Nkemba Christian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #f4f7f9;
+    --surface-color: #ffffff;
+    --text-primary: #0B1E3D;
+    --text-secondary: #4B5A70;
+    --accent-color: #1565D8;
+    --accent-hover: #29ABE2;
+    --gradient: linear-gradient(135deg, #1565D8, #29ABE2);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  header {
+    width: 100%;
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--surface-color);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(11, 30, 61, 0.1);
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .company-logo {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease-out;
+  }
+
+  .profile-img-container {
+    position: relative;
+    z-index: 1;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    padding: 5px;
+    background: var(--gradient);
+    animation: fadeInDown 1s ease-out 0.2s backwards;
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--surface-color);
+  }
+
+  header h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out 0.3s backwards;
+  }
+
+  header p {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    background: var(--gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 25px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.5s backwards;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(21, 101, 216, 0.4);
+    color: white;
+  }
+
+  main {
+    max-width: 1000px;
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  section {
+    background: var(--surface-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(11, 30, 61, 0.08);
+    border: 1px solid rgba(11, 30, 61, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out backwards;
+  }
+
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(11, 30, 61, 0.12);
+  }
+
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+  section:nth-child(4) { animation-delay: 0.4s; }
+  section:nth-child(5) { animation-delay: 0.5s; }
+  section:nth-child(6) { animation-delay: 0.6s; }
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    display: inline-block;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50%;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+  }
+
+  .about-text {
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* Services & Certifications Cards */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+  }
+
+  .service-card {
+    background: var(--bg-color);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(11, 30, 61, 0.05);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(21, 101, 216, 0.15);
+    border-color: rgba(21, 101, 216, 0.3);
+  }
+
+  .service-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+
+  .service-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1.25em;
+  }
+
+  /* Project Cards (Gallery) */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(11, 30, 61, 0.05);
+    background: var(--bg-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(21, 101, 216, 0.15);
+  }
+
+  .project-img-wrapper {
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .project-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .project-card:hover .project-img-wrapper img {
+    transform: scale(1.08);
+  }
+
+  .project-info {
+    padding: 15px;
+    text-align: left;
+  }
+
+  .project-info h3 {
+    font-size: 1.05em;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .skills-category h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    background: rgba(21, 101, 216, 0.05);
+    color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9em;
+    font-weight: 600;
+    border: 1px solid rgba(21, 101, 216, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+
+  .skill-tag:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(21, 101, 216, 0.4);
+  }
+
+  /* Contact */
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 10px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1em;
+    color: var(--text-secondary);
+    padding: 15px;
+    background: rgba(11, 30, 61, 0.03);
+    border-radius: 12px;
+    transition: background 0.3s ease;
+  }
+
+  .contact-item:hover {
+    background: rgba(11, 30, 61, 0.08);
+  }
+
+  .contact-icon {
+    font-size: 1.5em;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(11, 30, 61, 0.1);
+    background: rgba(11, 30, 61, 0.02);
+    font-family: inherit;
+    font-size: 1em;
+    color: var(--text-primary);
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  .contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.1);
+  }
+
+  footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    border-top: 1px solid rgba(11, 30, 61, 0.1);
+    margin-top: auto;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 2.5em; }
+    section { padding: 30px 20px; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="company-logo">
+    <img src="picture/line-tech-logo-light-bg.svg" alt="Line Tech Logo" style="max-height: 80px; width: auto;">
+  </div>
+  <div class="profile-img-container">
+    <img src="picture/20260208_173515.jpg" alt="Photo de profil de Nkemba Christian" class="profile-img">
+  </div>
+  <h1>Nkemba Christian</h1>
+  <p>Fondateur Line Tech | Informatique & Sécurité</p>
+  <a href="#contact" class="btn-primary">Demander un devis</a>
+</header>
+
+<main>
+  <section id="apropos">
+    <h2>À propos de moi</h2>
+    <p class="about-text">
+      Je suis étudiant en Licence 3, filière Logiciels et Systèmes Informatiques (LSI), à l'ISIG Goma.
+      Passionné par les infrastructures numériques, j'ai un fort attrait pour les télécommunications et le networking. 
+      Je me suis ainsi formé en cybersécurité, en administration réseau (notions CCNA), ainsi qu'en vidéosurveillance et contrôle d'accès (Hikvision).
+      Mon objectif est de devenir un professionnel IT hautement qualifié, capable de piloter de grands projets d'infrastructure
+      et de diriger <strong>Line Tech</strong> comme un acteur clé dans le domaine des télécommunications et des technologies de l'information.
+    </p>
+  </section>
+
+  <section id="services">
+    <h2>Mes Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📡</div>
+        <h3>Télécoms & Réseaux</h3>
+        <p class="about-text" style="font-size: 0.95em;">Déploiement d'antennes (Starlink, Cambium), câblage réseau structuré, et configuration de routeurs / switchs d'entreprise.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📹</div>
+        <h3>Vidéosurveillance (CCTV)</h3>
+        <p class="about-text" style="font-size: 0.95em;">Installation et paramétrage complet de systèmes de vidéosurveillance Hikvision, caméras IP et systèmes d'alarme.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔐</div>
+        <h3>Cybersécurité & Accès</h3>
+        <p class="about-text" style="font-size: 0.95em;">Mise en place de contrôles d'accès physiques, audit de sécurité des réseaux informatiques et sécurisation des données.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <h2>Projets Réalisés</h2>
+    <p class="about-text" style="margin-bottom: 20px;">Aperçu de mes travaux pratiques, déploiements d'équipements et interventions techniques.</p>
+    <div class="gallery-grid">
+      <div class="project-card">
+        <div class="project-img-wrapper"><img src="picture/20260818_144514.jpg" alt="Intervention Télécom"></div>
+        <div class="project-info">
+          <h3>Intervention Télécom</h3>
+          <p class="about-text" style="font-size: 0.9em;">Déploiement d'équipements de communication.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-wrapper"><img src="picture/IMG-20260609-WA0006.jpg" alt="Intervention Réseau"></div>
+        <div class="project-info">
+          <h3>Intervention Réseau</h3>
+          <p class="about-text" style="font-size: 0.9em;">Mise en place d'infrastructures locales.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-wrapper"><img src="picture/IMG_6497.jpeg" alt="Matériel Télécom"></div>
+        <div class="project-info">
+          <h3>Câblage & Matériel</h3>
+          <p class="about-text" style="font-size: 0.9em;">Installation en armoire / baie de brassage.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-wrapper"><img src="picture/IMG_6529.jpeg" alt="Configuration Réseau"></div>
+        <div class="project-info">
+          <h3>Configuration Cisco</h3>
+          <p class="about-text" style="font-size: 0.9em;">Paramétrage de routeurs et commutateurs.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-wrapper"><img src="picture/IMG_7192.jpeg" alt="Installation Équipement"></div>
+        <div class="project-info">
+          <h3>Installation Sur Site</h3>
+          <p class="about-text" style="font-size: 0.9em;">Installation physique des systèmes de sécurité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications & Formations</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Licence 3 LSI</h3>
+        <p class="about-text" style="font-size: 0.95em;">Filière Logiciels et Systèmes Informatiques (ISIG Goma). Connaissances approfondies en architecture logicielle.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏅</div>
+        <h3>Notions Cisco CCNA</h3>
+        <p class="about-text" style="font-size: 0.95em;">Formation solide en administration réseau, gestion des routeurs/switchs, VLANs et routage IP.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Sécurité Hikvision</h3>
+        <p class="about-text" style="font-size: 0.95em;">Maîtrise des déploiements CCTV (caméras IP/analogiques) et de la gestion des accès électroniques.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2>Compétences Techniques</h2>
+    <div class="skills-grid">
+      <div class="skills-category">
+        <h3>Réseaux & Télécommunications</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Cisco / CCNA</span>
+          <span class="skill-tag">Configuration Réseau</span>
+          <span class="skill-tag">Déploiement</span>
+          <span class="skill-tag">Routage & Switching</span>
+          <span class="skill-tag">4G / 5G</span>
+          <span class="skill-tag">Cambium</span>
+          <span class="skill-tag">Starlink</span>
+          <span class="skill-tag">Packet Tracer</span>
+          <span class="skill-tag">GNS3</span>
+          <span class="skill-tag">EVE-NG</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Développement</h3>
+        <div class="skills-list">
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">WinForms</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Bases de données</h3>
+        <div class="skills-list">
+          <span class="skill-tag">SQL Server</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">phpMyAdmin</span>
+          <span class="skill-tag">WAMP</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Systèmes</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Windows 11</span>
+          <span class="skill-tag">Linux / Ubuntu</span>
+          <span class="skill-tag">VirtualBox</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Vidéosurveillance & Sécurité</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Hikvision CCTV</span>
+          <span class="skill-tag">Contrôle d'accès</span>
+          <span class="skill-tag">Cybersécurité (Cisco)</span>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Analyse de données</h3>
+        <div class="skills-list">
+          <span class="skill-tag">Statistiques</span>
+          <span class="skill-tag">SPSS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="about-text">Vous avez un projet de déploiement réseau, d'installation de caméras ou besoin d'un audit de sécurité ? Contactez-moi !</p>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <span>nkembachristian@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span>+243 970 650 535</span>
+        </div>
+        <a href="https://www.linkedin.com/in/christian-nkemba-010652200" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+          <div class="contact-item" style="cursor: pointer;">
+            <span class="contact-icon">💼</span>
+            <span>LinkedIn : Christian Nkemba</span>
+          </div>
+        </a>
+      </div>
+
+      <form class="contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Message envoyé avec succès à Line Tech !');">
+        <input type="text" placeholder="Votre Nom complet" required>
+        <input type="email" placeholder="Votre Adresse Email" required>
+        <textarea placeholder="Décrivez votre besoin (devis, intervention technique...)" required></textarea>
+        <button type="submit" class="btn-primary" style="margin-top: 5px;">Envoyer le message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 Line Tech - Nkemba Christian. Tous droits réservés.
+</footer>
+
+</body>
+</html>

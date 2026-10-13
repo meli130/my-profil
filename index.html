@@ -12,18 +12,18 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root {
-    --bg-color: #0a0a0a;
-    --surface-color: #111111;
-    --surface-2: #1a1a1a;
-    --text-primary: #f5f0e8;
-    --text-secondary: #a89878;
-    --gold: #c9a84c;
-    --gold-light: #e4c97e;
-    --gold-dark: #8a6a1f;
-    --gradient: linear-gradient(135deg, #c9a84c, #e4c97e, #c9a84c);
-    --gradient-hover: linear-gradient(135deg, #e4c97e, #c9a84c);
-    --border: rgba(201, 168, 76, 0.2);
-    --border-hover: rgba(201, 168, 76, 0.5);
+    --burgundy: #6C151E;
+    --green: #0F3D3A;
+    --cream: #F5DABF;
+    --bg-color: var(--cream);
+    --surface-color: color-mix(in srgb, var(--cream) 75%, white);
+    --surface-2: var(--cream);
+    --text-primary: var(--green);
+    --text-secondary: #365653;
+    --accent: var(--burgundy);
+    --gradient: linear-gradient(135deg, var(--burgundy), var(--green));
+    --border: rgba(15, 61, 58, 0.2);
+    --border-hover: rgba(108, 21, 30, 0.5);
   }
 
   * {
@@ -49,7 +49,7 @@
     width: 100%;
     padding: 90px 20px 80px;
     text-align: center;
-    background: var(--surface-color);
+    background: var(--green);
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
@@ -63,7 +63,7 @@
     transform: translateX(-50%);
     width: 70%;
     height: 300px;
-    background: radial-gradient(ellipse, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(108, 21, 30, 0.12) 0%, transparent 70%);
     z-index: 0;
   }
 
@@ -83,8 +83,6 @@
     z-index: 1;
     margin-bottom: 30px;
     animation: fadeInDown 1s ease-out;
-    /* Invert + sepia + saturate to make the SVG appear in gold tones on dark bg */
-    filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.9);
   }
 
   .profile-img-container {
@@ -97,7 +95,7 @@
     padding: 3px;
     background: var(--gradient);
     animation: fadeInDown 1s ease-out 0.2s backwards;
-    box-shadow: 0 0 30px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 0 30px rgba(108, 21, 30, 0.3);
   }
 
   .profile-img {
@@ -105,16 +103,13 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid var(--surface-color);
+    border: 3px solid var(--green);
   }
 
   header h1 {
     font-size: 3.5em;
     font-weight: 800;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--cream);
     margin-bottom: 10px;
     position: relative;
     z-index: 1;
@@ -123,7 +118,7 @@
 
   header p {
     font-size: 1.2em;
-    color: var(--text-secondary);
+    color: var(--cream);
     position: relative;
     z-index: 1;
     animation: fadeInUp 1s ease-out 0.4s backwards;
@@ -135,8 +130,8 @@
   .btn-primary {
     display: inline-block;
     padding: 14px 40px;
-    background: transparent;
-    color: var(--gold);
+    background: var(--burgundy);
+    color: var(--cream);
     text-decoration: none;
     border-radius: 2px;
     font-weight: 700;
@@ -146,16 +141,16 @@
     position: relative;
     z-index: 1;
     animation: fadeInUp 1s ease-out 0.5s backwards;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--cream);
     cursor: pointer;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
 
   .btn-primary:hover {
-    background: var(--gold);
-    color: #000;
-    box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+    background: var(--cream);
+    color: var(--burgundy);
+    box-shadow: 0 8px 25px rgba(15, 61, 58, 0.2);
   }
 
   /* ========= MAIN ========= */
@@ -196,7 +191,7 @@
 
   section:hover {
     border-color: var(--border-hover);
-    box-shadow: 0 0 30px rgba(201, 168, 76, 0.08);
+    box-shadow: 0 0 30px rgba(108, 21, 30, 0.08);
   }
 
   section:nth-child(1) { animation-delay: 0.1s; }
@@ -209,7 +204,7 @@
   h2 {
     font-size: 1.8em;
     margin-bottom: 30px;
-    color: var(--text-primary);
+    color: var(--burgundy);
     display: inline-block;
     position: relative;
     letter-spacing: 1px;
@@ -267,7 +262,7 @@
   .service-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.1);
+    box-shadow: 0 8px 25px rgba(108, 21, 30, 0.1);
   }
 
   .service-icon {
@@ -277,7 +272,7 @@
   }
 
   .service-card h3 {
-    color: var(--gold-light);
+    color: var(--accent);
     margin-bottom: 10px;
     font-size: 1.1em;
     letter-spacing: 0.5px;
@@ -303,7 +298,7 @@
 
   .project-card:hover {
     border-color: var(--border-hover);
-    box-shadow: 0 8px 25px rgba(201, 168, 76, 0.12);
+    box-shadow: 0 8px 25px rgba(108, 21, 30, 0.12);
     transform: translateY(-4px);
   }
 
@@ -331,7 +326,7 @@
 
   .project-info h3 {
     font-size: 1em;
-    color: var(--gold);
+    color: var(--accent);
     margin-bottom: 5px;
   }
 
@@ -345,7 +340,7 @@
   .skills-category h3 {
     font-size: 1em;
     margin-bottom: 15px;
-    color: var(--gold-light);
+    color: var(--accent);
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -363,15 +358,15 @@
     border-radius: 2px;
     font-size: 0.85em;
     font-weight: 400;
-    border: 1px solid rgba(201, 168, 76, 0.25);
+    border: 1px solid rgba(108, 21, 30, 0.25);
     transition: all 0.3s ease;
     cursor: default;
   }
 
   .skill-tag:hover {
-    background: rgba(201, 168, 76, 0.1);
-    color: var(--gold-light);
-    border-color: var(--gold);
+    background: rgba(108, 21, 30, 0.1);
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   /* ========= CONTACT ========= */
@@ -403,7 +398,7 @@
 
   .contact-item:hover {
     border-color: var(--border-hover);
-    color: var(--gold-light);
+    color: var(--accent);
   }
 
   .contact-icon {
@@ -432,7 +427,7 @@
 
   .contact-form input::placeholder,
   .contact-form textarea::placeholder {
-    color: rgba(168, 152, 120, 0.5);
+    color: rgba(15, 61, 58, 0.75);
   }
 
   .contact-form textarea {
@@ -443,16 +438,16 @@
   .contact-form input:focus,
   .contact-form textarea:focus {
     outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 15px rgba(201, 168, 76, 0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(108, 21, 30, 0.15);
   }
 
   .btn-submit {
     display: inline-block;
     padding: 14px 30px;
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
+    background: var(--burgundy);
+    color: var(--cream);
+    border: 1px solid var(--burgundy);
     border-radius: 2px;
     font-family: inherit;
     font-weight: 700;
@@ -464,9 +459,10 @@
   }
 
   .btn-submit:hover:not(:disabled) {
-    background: var(--gold);
-    color: #000;
-    box-shadow: 0 0 20px rgba(201, 168, 76, 0.35);
+    background: var(--green);
+    color: var(--cream);
+    border-color: var(--green);
+    box-shadow: 0 8px 20px rgba(15, 61, 58, 0.2);
   }
 
   .btn-submit:disabled {
@@ -483,16 +479,16 @@
   }
 
   #form-status.success {
-    background: rgba(201, 168, 76, 0.1);
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    color: var(--gold-light);
+    background: rgba(15, 61, 58, 0.1);
+    border: 1px solid rgba(15, 61, 58, 0.4);
+    color: var(--green);
     display: block;
   }
 
   #form-status.error {
-    background: rgba(200, 50, 50, 0.1);
-    border: 1px solid rgba(200, 50, 50, 0.4);
-    color: #e07070;
+    background: rgba(108, 21, 30, 0.1);
+    border: 1px solid rgba(108, 21, 30, 0.4);
+    color: var(--burgundy);
     display: block;
   }
 
@@ -501,7 +497,8 @@
     width: 100%;
     text-align: center;
     padding: 30px;
-    color: var(--text-secondary);
+    background: var(--green);
+    color: var(--cream);
     font-size: 0.85em;
     border-top: 1px solid var(--border);
     margin-top: auto;
@@ -509,7 +506,17 @@
   }
 
   footer span {
-    color: var(--gold);
+    color: var(--cream);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+  }
+
+  header a:focus-visible {
+    outline-color: var(--cream);
   }
 
   /* ========= ANIMATIONS ========= */
@@ -558,7 +565,7 @@
       Passionné par les infrastructures numériques, j'ai un fort attrait pour les télécommunications et le networking. 
       Je me suis formé en cybersécurité, en administration réseau (notions CCNA), ainsi qu'en vidéosurveillance et contrôle d'accès (Hikvision).
       Mon objectif est de devenir un professionnel IT hautement qualifié, capable de piloter de grands projets d'infrastructure
-      et de diriger <strong style="color: var(--gold-light);">Line Tech</strong> comme un acteur clé dans les télécommunications et les technologies de l'information.
+      et de diriger <strong style="color: var(--accent);">Line Tech</strong> comme un acteur clé dans les télécommunications et les technologies de l'information.
     </p>
   </section>
 
